@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Complete JavaScript Course</title>
+</head>
+<body id="out">
+ <div id="message">
+ <div>
+   <h1>VOTING  INTERACTIVE  SYSTEM</h1>
+   <h2>
+     Enter the name of your candidate
+   </h2>
+ <input type="text" id="addFriend">
+ <input type="button" id="addNew" value="Add Friend" onclick="sth()">
+ </div>
+ <table id="output">
+   
+   <tr><td>1 James <b>0</b></td></tr>
+
+   <tr><td>2 Mike <b>0</b></td></tr>
+   
+   <tr><td>3 Luke <b>0</b></td></tr>
+   
+   
+ </table>
+ 
+ <script>
+ /*
+ myArray=["chibuike", "emeka","ekene"]
+ let m=document.createElement("tr");
+ for(let i=0;i<myArray.length;i++){
+   let s=i+1
+   m[i].innerText= `${s} ${myArray[i]}`
+   }
+   document.getElementById("output").appendChild(m)
+*/
+let myArray=[];
+ function sth(){
+   let el=document.createElement("tr")
+   
+   let a=document.getElementById("addFriend").value
+   let num=document.getElementsByTagName("tr").length+1
+   el.innerText="1 James"
+   el.innerText="2 Louis"
+   el.innerText="3 Nike"
+   el.innerText=`${num} ${a}`
+   document.getElementById("output").appendChild(el)
+   
+  
+   
+     el.addEventListener("click",addOne)
+   
+   myArray.push(`${a}`)
+ 
+ console.log(myArray)
+ 
+ let ele = document.createElement("b");
+ ele.innerText = "   0"
+ //ele.addEventListener("click",addOne)
+ el.appendChild(ele)
+ }
+ 
+ function addOne(){
+let m=this.innerText
+let k=m.split("")
+for(let i=0; i<1; i++){
+  let j=k.length-1
+  k[j]++
+}
+
+this.innerText=k.join("")
+ }
+let b= document.getElementsByTagName("tr")
+for(let i=0; i<b.length;i++){
+  b.item(i).addEventListener("click",addOne)
+}
+ </script>
+</body>
+</html>
+<!--
+Create an array of people's names called myArray. This will be the default
+original list of names.
+2. Select the page elements as JavaScript objects so they can easily be selected
+within the code.
+3. Add event listener to the Add Friend button. Once clicked, this will get the
+value from the input field and pass the values to a function that will add
+the friend list to the page. Additionally, add the new friend's name into the
+people's names array you created. Get the current value in the input field and
+push that value into the array so the array matches the values on the page.
+4. Run a function to build the content on the page, using the forEach() loop get
+all the items within the array and add them to the page. Include 0 as a default
+for the vote count, as all individuals should start on zero votes.
+5. Create a main function that will create the page elements, starting with the
+parent table row, tr. Then create three table cell, td, elements. Add content to
+the table cells, including the vote count in the last column, the person name
+in the middle, and the index plus 1 in the first column.
+6. Append the table cells to the table row and append the table row to the
+output area on the page.
+7. Add an event listener that will increase the vote counter for that row when
+the user clicks.
+8. Get the text content from the last column in the row. It should be the value
+of the current counter. Increment the counter by one and make sure the
+datatype is a number so you can add to it.
+9. Update the last column with the new click counter.
