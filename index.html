@@ -85,7 +85,7 @@ let myArray=[];
  }
  
  function addOne(){
-let m=this.innerText
+/*let m=this.innerText
 let k=m.split("")
 for(let i=0; i<1; i++){
   let j=k.length-1
@@ -93,7 +93,33 @@ for(let i=0; i<1; i++){
 }
 
 this.innerText=k.join("")
+*/
+
+/////////////////
+let a = this.innerText
+let k = a.split("")
+let arr = [];
+let ad = [];
+for (let i = 0; i < k.length; i++) {
+  if (k[i] == "0" || k[i] == "1" || k[i] == "2" || k[i] == "3" || k[i] == "4" || k[i] == "5" || k[i] == "6" || k[i] == "7" || k[i] == "8" || k[i] == "9") {
+    arr.push(k[i])
+    ad.push(i)
+  }
+}
+arr.shift()
+ad.shift()
+let m = Math.min(...ad)
+let g = parseInt(arr.join(""))
+g = g + 1
+let bb = a.slice(0, m);
+let ghg = bb.concat(g)
+let mmm = [...ghg]
+this.innerText=mmm.join("")
  }
+ 
+ 
+ 
+ 
 let b= document.getElementsByTagName("tr")
 for(let i=0; i<b.length;i++){
   b.item(i).addEventListener("click",addOne)
@@ -101,4 +127,3 @@ for(let i=0; i<b.length;i++){
  </script>
 </body>
 </html>
-<!--
